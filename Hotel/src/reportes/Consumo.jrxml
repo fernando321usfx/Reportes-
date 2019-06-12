@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="de0f575d-474f-4d2a-8277-e41082b71d02">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     consumo.`idconsumo` AS consumo_idconsumo,
+     consumo.`idreserva` AS consumo_idreserva,
+     consumo.`idproducto` AS consumo_idproducto,
+     consumo.`cantidad` AS consumo_cantidad,
+     consumo.`precio_venta` AS consumo_precio_venta,
+     consumo.`estado` AS consumo_estado
+FROM
+     `consumo` consumo]]>
+	</queryString>
+	<field name="consumo_idconsumo" class="java.lang.Integer"/>
+	<field name="consumo_idreserva" class="java.lang.Integer"/>
+	<field name="consumo_idproducto" class="java.lang.Integer"/>
+	<field name="consumo_cantidad" class="java.math.BigDecimal"/>
+	<field name="consumo_precio_venta" class="java.math.BigDecimal"/>
+	<field name="consumo_estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="24128808-c902-4c64-b3e4-e13658574b8d"/>
+				<imageExpression><![CDATA["leaf_banner_green.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33" uuid="a7600a0f-ef08-4aba-8660-cf477ee76b30"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Consumos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="100" y="46" width="174" height="22" uuid="5c165f25-8e3f-4790-94ab-6d22471d85c3"/>
+				<text><![CDATA[Hotel Santa Cecilia]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="d3840f43-a28b-405e-b83d-f553f1effcbe"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="92" height="15" uuid="91ce8a2f-caf1-45c2-8d16-ab765a8333bc"/>
+				<text><![CDATA[Id de consumo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="19" width="92" height="15" uuid="9e64cd23-f09d-4dd0-99ac-85268ae9dd69"/>
+				<text><![CDATA[Id Reserva]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="19" width="92" height="15" uuid="241bf761-9f64-404d-866e-105f731ff5bc"/>
+				<text><![CDATA[Id Reserva]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="92" height="15" uuid="d197f051-7e81-47bb-973e-030f95fd28fb"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="19" width="92" height="15" uuid="1b20738c-d926-436b-823b-f8c7c96e3f50"/>
+				<text><![CDATA[Precio Venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="19" width="92" height="15" uuid="0d4a0faa-4569-4ab9-92cd-4343489ccffb"/>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="396bb589-843d-493e-9b71-ef69634d2714"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="b6b931bb-1bb4-4c2a-ba47-83f0f8aaa46e"/>
+				<textFieldExpression><![CDATA[$F{consumo_idconsumo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="f259cbe3-5f2f-4510-94ac-6cf50c7d86c2"/>
+				<textFieldExpression><![CDATA[$F{consumo_idreserva}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="aa55f512-3bd0-470f-8372-a0dbab1e6cfe"/>
+				<textFieldExpression><![CDATA[$F{consumo_idproducto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="4ba5f506-88f4-46e7-be13-d67ce405d28e"/>
+				<textFieldExpression><![CDATA[$F{consumo_cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="67c892a4-902b-4d63-866e-93badf577703"/>
+				<textFieldExpression><![CDATA[$F{consumo_precio_venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="69c57d3e-5f94-4ef9-8ca9-8952b92c2167"/>
+				<textFieldExpression><![CDATA[$F{consumo_estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="4c386221-84d0-457f-8ff6-1e8a5bf46107"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="ecfa9706-dd81-4ba7-affb-271c16d7900b"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="8428cc82-e317-4dc2-a129-debb024fdd9a"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="4dd63aab-c909-4a37-bc69-de9d1545de42"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
